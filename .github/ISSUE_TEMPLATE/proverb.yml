@@ -1,0 +1,48 @@
+name: Proverb contribution
+description: Submit a Gikuyu proverb to the Thimo cia Gikuyu collection.
+title: "Proverb contribution: "
+labels:
+  - proverb
+  - contribution
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping preserve Gikuyu wisdom. Please provide the proverb exactly as it should appear in the collection.
+
+  - type: textarea
+    id: proverb
+    attributes:
+      label: Gikuyu proverb
+      description: Enter one proverb. Keep the original spelling, punctuation, and diacritics where possible.
+      placeholder: Andika thimo yaku...
+    validations:
+      required: true
+
+  - type: textarea
+    id: translation
+    attributes:
+      label: English translation or explanation
+      description: Optional context, translation, or explanation of the proverb.
+      placeholder: What does this proverb mean?
+    validations:
+      required: false
+
+  - type: input
+    id: source
+    attributes:
+      label: Source or attribution
+      description: Optional. Tell us where the proverb came from or who shared it.
+      placeholder: Family, community elder, book, or other source
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Contribution permission
+      options:
+        - label: I confirm that this contribution may be included in the open-source Thimo cia Gikuyu collection.
+          required: true
+        - label: I have removed private or identifying information that should not be published.
+          required: true
