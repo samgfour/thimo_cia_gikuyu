@@ -17,7 +17,6 @@
       --line: #e4dcc8;
       --shadow: 0 14px 32px rgba(17, 61, 48, 0.08);
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -284,8 +283,8 @@
         <div class="card">
           <h3>Review process</h3>
           <p>Submissions are held for peer review. Reviewers check meaning, cultural context, duplication, and accuracy.</p>
-          <p>This form submits a review request to the GitHub issue endpoint when the Cloudflare function is deployed with the correct secret variables.</p>
-          <a class="button" href="https://github.com/samgfour/thimo_cia_gikuyu/issues" target="_blank" rel="noopener">View project issues</a>
+          <p>This form opens a GitHub issue draft so contributors can submit reviews without a server-side secret.</p>
+          <a class="button" href="https://github.com/samgfour/thimo_cia_gikuyu/issues/new/choose" target="_blank" rel="noopener">Open GitHub issue form</a>
         </div>
       </div>
     </section>
@@ -362,9 +361,9 @@
     function applyNotes(entries) {
       const localNotes = readLocalNoteMap();
       return entries.map((entry) => {
-        const lookUp = entry.proverb.trim();
-        const existing = localNotes[lookUp];
-        return normalizeEntry({ ...entry, description: existing || entry.description || 'No description recorded yet. Suggest a description or correction.' });
+        const key = entry.proverb.trim();
+        const noteValue = localNotes[key] || entry.description || 'No description recorded yet. Suggest a description or correction.';
+        return normalizeEntry({ ...entry, description: noteValue });
       });
     }
 
@@ -375,7 +374,7 @@
       const visible = state.filtered.slice(start, start + PAGE_SIZE);
 
       list.innerHTML = visible.length
-        ? visible.map((entry, index) => `
+        ? visible.map((entry) => `
           <li>
             <button class="proverb-item" type="button" data-proverb="${escapeHtml(entry.proverb)}">
               <strong>${escapeHtml(entry.proverb)}</strong>
@@ -410,25 +409,7 @@
           .map(line => line.trim())
           .filter(Boolean);
 
-        const baseEntries = lines.map(proverb => ({ proverb, description: 'No description recorded yet. Suggest a description or correction.', reviewStatus: 'Approved' }));
-
-        let notes = {};
-        try {
-          const notesResponse = await fetch('proverb_notes.json', { cache: 'no-store' });
-          if (notesResponse.ok) {
-            notes = await notesResponse.json();
-          }
-        } catch (error) {
-          notes = {};
-        }
-
-        const merged = baseEntries.map(entry => {
-          const key = entry.proverb.trim();
-          const noteValue = notes[key] || readLocalNoteMap()[key];
-          return { ...entry, description: noteValue || entry.description };
-        });
-
-        state.all = applyNotes(merged);
+        state.all = applyNotes(lines.map(proverb => ({ proverb, description: 'No description recorded yet. Suggest a description or correction.', reviewStatus: 'Approved' })));
       } catch (error) {
         state.all = [];
         status.textContent = 'The proverb archive could not be loaded.';
@@ -452,6 +433,46 @@
       modal.classList.add('hidden');
       modal.setAttribute('aria-hidden', 'true');
       state.selected = null;
+    }
+
+    function openIssueDraftFromForm() {
+      const proverb = document.getElementById('proverb').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const translation = document.getElementById('translation').value.trim();
+      const source = document.getElementById('source').value.trim();
+      const contributionType = document.getElementById('contribution-type').value;
+
+      if (!proverb || !description) {
+        document.getElementById('form-status').textContent = 'Please enter both the proverb and a detailed description.';
+        return;
+      }
+
+      const title = `Proverb review: ${proverb.slice(0, 60)}`;
+      const body = [
+        '## Proverb review request',
+        '',
+        `**Contribution type**\n${contributionType}`,
+        '',
+        `**Proverb**\n${proverb}`,
+        '',
+        `**Detailed description**\n${description}`,
+        '',
+        `**Translation / explanation**\n${translation || 'Not provided'}`,
+        '',
+        `**Source / attribution**\n${source || 'Not provided'}`,
+        '',
+        '---',
+        'Please review this submission for accuracy, cultural context, duplication, and suitability.'
+      ].join('\n');
+
+      const issueUrl = 'https://github.com/samgfour/thimo_cia_gikuyu/issues/new?' + new URLSearchParams({
+        title,
+        body,
+        labels: 'proverb,pending-review'
+      }).toString();
+
+      window.open(issueUrl, '_blank', 'noopener');
+      document.getElementById('form-status').textContent = 'GitHub issue draft opened. Please submit it from GitHub.';
     }
 
     function fillFormForSelected() {
@@ -503,48 +524,9 @@
     });
     document.getElementById('suggest-edit').addEventListener('click', fillFormForSelected);
 
-    proverbForm.addEventListener('submit', async (event) => {
+    proverbForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      const proverb = document.getElementById('proverb').value.trim();
-      const description = document.getElementById('description').value.trim();
-      const translation = document.getElementById('translation').value.trim();
-      const source = document.getElementById('source').value.trim();
-      const contributionType = document.getElementById('contribution-type').value;
-      const formStatus = document.getElementById('form-status');
-
-      if (!proverb || !description) {
-        formStatus.textContent = 'Please enter both the proverb and a detailed description.';
-        return;
-      }
-
-      formStatus.textContent = 'Submitting for peer review…';
-
-      try {
-        const response = await fetch('/api/submit-proverb', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ proverb, description, translation, source, contributionType })
-        });
-
-        const data = await response.json();
-        if (!response.ok) {
-          throw new Error(data?.error || 'Submission failed');
-        }
-
-        const localNotes = readLocalNoteMap();
-        if (proverb) {
-          localNotes[proverb] = description;
-          saveLocalNoteMap(localNotes);
-        }
-
-        state.all = applyNotes(state.all);
-        filterEntries();
-        proverbForm.reset();
-        formStatus.innerHTML = data.issueUrl ? `Submitted for review. <a href="${escapeHtml(data.issueUrl)}" target="_blank" rel="noopener">View GitHub issue</a>` : 'Submitted for peer review.';
-      } catch (error) {
-        console.error(error);
-        formStatus.textContent = 'Submission failed. Please check the Cloudflare function and secret configuration.';
-      }
+      openIssueDraftFromForm();
     });
 
     loadArchive();
