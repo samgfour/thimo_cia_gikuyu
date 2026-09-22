@@ -409,7 +409,27 @@
           .map(line => line.trim())
           .filter(Boolean);
 
-        state.all = applyNotes(lines.map(proverb => ({ proverb, description: 'No description recorded yet. Suggest a description or correction.', reviewStatus: 'Approved' })));
+        let noteMap = {};
+        try {
+          const notesResponse = await fetch('proverb_notes.json', { cache: 'no-store' });
+          if (notesResponse.ok) {
+            noteMap = await notesResponse.json();
+          }
+        } catch (error) {
+          noteMap = {};
+        }
+
+        const merged = lines.map((proverb) => {
+          const safeProverb = proverb.trim();
+          const approved = noteMap[safeProverb];
+          return {
+            proverb: safeProverb,
+            description: approved && typeof approved === 'object' && approved.description ? approved.description : 'No description recorded yet. Suggest a description or correction.',
+            reviewStatus: approved && typeof approved === 'object' && approved.reviewStatus ? approved.reviewStatus : 'Approved'
+          };
+        });
+
+        state.all = applyNotes(merged);
       } catch (error) {
         state.all = [];
         status.textContent = 'The proverb archive could not be loaded.';
