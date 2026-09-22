@@ -1,30 +1,50 @@
-name: Proverb contribution
-description: Submit a Gikuyu proverb to the Thimo cia Gikuyu collection.
-title: "Proverb contribution: "
+name: Proverb review
+about: Submit a new proverb or a description/correction for an existing one.
+title: "Proverb review: "
 labels:
   - proverb
-  - contribution
+  - pending-review
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for helping preserve Gikuyu wisdom. Please provide the proverb exactly as it should appear in the collection.
+        Thank you for helping preserve Gikuyu wisdom. Every submission is reviewed by peers before it is accepted or updated.
+
+  - type: dropdown
+    id: contribution_type
+    attributes:
+      label: Contribution type
+      description: Choose whether this is a new proverb or a detailed description/correction for an existing proverb.
+      options:
+        - New proverb
+        - Description or correction for an existing proverb
+    validations:
+      required: true
 
   - type: textarea
     id: proverb
     attributes:
       label: Gikuyu proverb
-      description: Enter one proverb. Keep the original spelling, punctuation, and diacritics where possible.
+      description: Add the original proverb exactly as it should appear in the collection.
       placeholder: Andika thimo yaku...
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed description
+      description: Explain the meaning, cultural context, translation, usage, or the correction you are proposing.
+      placeholder: Describe the proverb in detail, including context and meaning...
     validations:
       required: true
 
   - type: textarea
     id: translation
     attributes:
-      label: English translation or explanation
-      description: Optional context, translation, or explanation of the proverb.
-      placeholder: What does this proverb mean?
+      label: Optional translation or explanation
+      description: Add a short English translation or explanation if available.
+      placeholder: Short explanation or translation
     validations:
       required: false
 
@@ -32,8 +52,8 @@ body:
     id: source
     attributes:
       label: Source or attribution
-      description: Optional. Tell us where the proverb came from or who shared it.
-      placeholder: Family, community elder, book, or other source
+      description: Optional — tell us where this came from.
+      placeholder: Family, elder, book, or community source
     validations:
       required: false
 
@@ -42,7 +62,7 @@ body:
     attributes:
       label: Contribution permission
       options:
-        - label: I confirm that this contribution may be included in the open-source Thimo cia Gikuyu collection.
+        - label: I confirm this contribution may be considered for the open-source Thimo cia Gikuyu collection.
           required: true
         - label: I have removed private or identifying information that should not be published.
           required: true
