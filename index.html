@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thimo cia Gikuyu — a community collection of Gikuyu proverbs and wisdom.">
+  <title>Thimo cia Gikuyu</title>
+  <style>
+    :root {
+      --ink: #243229;
+      --muted: #627268;
+      --cream: #f8f4ea;
+      --paper: #fffdf8;
+      --green: #1f5b45;
+      --green-dark: #163f31;
+      --gold: #c89235;
+      --line: #e7dfcf;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .2);
+      color: #fff;
+      background: var(--green-dark);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: bold;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+
+    .language {
+      color: #dce9df;
+      font-size: .9rem;
+    }
+
+    .hero {
+      padding: 6rem 0 5rem;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(22, 63, 49, .96), rgba(31, 91, 69, .84)),
+        radial-gradient(circle at 80% 20%, var(--gold), transparent 35%);
+    }
+
+    .hero-content { max-width: 700px; }
+
+    .eyebrow {
+      margin: 0 0 .75rem;
+      color: #f1c96d;
+      font-size: .8rem;
+      font-weight: bold;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 { line-height: 1.15; }
+
+    h1 {
+      max-width: 680px;
+      margin: 0 0 1.25rem;
+      font-size: clamp(2.5rem, 7vw, 5.25rem);
+      letter-spacing: -.04em;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0;
+      color: #e4eee7;
+      font-size: 1.15rem;
+    }
+
+    main { padding: 4rem 0; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    h2 {
+      margin: 0 0 .75rem;
+      color: var(--green-dark);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+    }
+
+    .intro p { margin-top: 0; color: var(--muted); }
+
+    .card {
+      padding: 1.75rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper);
+      box-shadow: 0 10px 30px rgba(36, 50, 41, .06);
+    }
+
+    .card h3 { margin-top: 0; color: var(--green); }
+
+    ol { padding-left: 1.35rem; margin-bottom: 0; }
+    li { margin: .65rem 0; }
+
+    code {
+      padding: .15rem .35rem;
+      border-radius: 4px;
+      color: var(--green-dark);
+      background: #edf3ed;
+      font-family: Consolas, monospace;
+      font-size: .9em;
+    }
+
+    .quote {
+      margin: 3.5rem 0 0;
+      padding: 2rem;
+      border-left: 5px solid var(--gold);
+      background: #f1eadb;
+      color: var(--green-dark);
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-style: italic;
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: .75rem;
+      color: var(--muted);
+      font-size: .95rem;
+      font-style: normal;
+    }
+
+    footer {
+      padding: 2rem 0;
+      color: #dce9df;
+      background: var(--green-dark);
+      font-size: .9rem;
+    }
+
+    footer a { color: #f1c96d; }
+
+    @media (max-width: 700px) {
+      .hero { padding: 4rem 0; }
+      .intro { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="index.html">Thimo cia Gikuyu</a>
+        <span class="language">Gikuyu wisdom · Community collection</span>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-content">
+      <p class="eyebrow">Preserving words, sharing wisdom</p>
+      <h1>Thimo cia Gikuyu</h1>
+      <p>A growing collection of Gikuyu proverbs, gathered one contribution at a time. Add a thimo and help keep this living heritage available for the next generation.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section class="intro" aria-labelledby="about-title">
+      <div>
+        <h2 id="about-title">Share a proverb</h2>
+        <p>The project includes <code>add_proverb.py</code>, a small command-line tool for collecting proverbs. Each entry is appended to <code>thimo.csv</code>, creating a simple, growing record of community knowledge.</p>
+        <p>Run the program, type your proverb, and press Enter. When you are finished, submit an empty line to leave the contribution prompt.</p>
+      </div>
+
+      <div class="card">
+        <h3>How it works</h3>
+        <ol>
+          <li>Open a terminal in the project directory.</li>
+          <li>Run <code>python add_proverb.py</code>.</li>
+          <li>Enter a Gikuyu proverb when prompted.</li>
+          <li>Press Enter on an empty prompt to finish.</li>
+        </ol>
+      </div>
+    </section>
+
+    <blockquote class="quote">
+      Every proverb carries a piece of memory, experience, and guidance.
+      <cite>— Thimo cia Gikuyu</cite>
+    </blockquote>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Built for the <a href="https://github.com/samgfour/thimo_cia_gikuyu">Thimo cia Gikuyu</a> community project.
+    </div>
+  </footer>
+</body>
+</html>
