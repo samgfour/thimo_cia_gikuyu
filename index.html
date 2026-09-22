@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Thimo cia Gikuyu — a reviewed community archive of Gikuyu proverbs and their meanings." />
+  <meta name="description" content="Thimo cia Gikuyu — reviewed collection of proverbs and their meaning." />
   <title>Thimo cia Gikuyu</title>
   <style>
     :root {
-      --ink: #1c2d28;
-      --muted: #5a6f68;
-      --cream: #f7f1e6;
+      --ink: #1f2c2c;
+      --muted: #576d69;
+      --cream: #f6f1e7;
       --paper: #fffdf9;
-      --green: #1d5e46;
-      --green-dark: #123d30;
-      --gold: #d3a14a;
-      --line: #e5d9c5;
-      --shadow: 0 16px 36px rgba(19, 61, 48, 0.08);
+      --green: #1f5a45;
+      --green-dark: #113d30;
+      --gold: #d5a246;
+      --line: #e4dcc8;
+      --shadow: 0 14px 32px rgba(17, 61, 48, 0.08);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--cream);
       color: var(--ink);
+      background: var(--cream);
       font-family: Georgia, "Times New Roman", serif;
       line-height: 1.6;
     }
@@ -32,12 +32,12 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(18, 61, 48, 0.96);
+      background: rgba(17, 61, 48, 0.96);
       color: #fff;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
     nav {
-      min-height: 70px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -46,18 +46,10 @@
     .brand {
       color: #fff;
       text-decoration: none;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: 0.04em;
     }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.92rem;
-    }
-    .nav-links a { color: #e6f2ea; text-decoration: none; }
-    .nav-links a:hover { color: #f1d38f; }
     .button {
       display: inline-block;
       background: var(--green);
@@ -70,13 +62,13 @@
       cursor: pointer;
     }
     .button.secondary {
-      background: #f1d38f;
+      background: #f0d188;
       color: var(--green-dark);
     }
     .hero {
-      padding: 6rem 0 4.5rem;
+      padding: 5.5rem 0 4.5rem;
       color: #fff;
-      background: radial-gradient(circle at 85% 15%, rgba(211, 161, 74, 0.55), transparent 28%), linear-gradient(130deg, #113d30 0%, #27735a 100%);
+      background: radial-gradient(circle at 85% 15%, rgba(213, 162, 70, 0.55), transparent 22%), linear-gradient(125deg, #113d30 0%, #257555 100%);
     }
     .hero-content { max-width: 760px; }
     .eyebrow {
@@ -84,30 +76,29 @@
       font-size: 0.78rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #f1d38f;
+      color: #f2d68b;
       font-weight: 800;
     }
     h1, h2, h3 { line-height: 1.15; }
-    h1 { margin: 0 0 1.25rem; font-size: clamp(2.9rem, 7vw, 5.8rem); letter-spacing: -0.05em; }
-    .hero p { color: #e7f0eb; font-size: 1.1rem; max-width: 650px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+    h1 { margin: 0 0 1.2rem; font-size: clamp(2.8rem, 7vw, 5.5rem); letter-spacing: -0.05em; }
+    .hero p { color: #e7f0eb; font-size: 1.08rem; max-width: 650px; }
     main { padding: 4rem 0; }
-    .section-heading { max-width: 720px; margin-bottom: 1.6rem; }
+    .section-heading { max-width: 740px; margin-bottom: 1.6rem; }
     .section-heading h2 {
-      margin: 0 0 0.5rem;
+      margin: 0 0 0.6rem;
       color: var(--green-dark);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
     }
     .section-heading p { margin: 0; color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; }
     .card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 14px;
       box-shadow: var(--shadow);
-      padding: 1.6rem;
+      padding: 1.7rem;
     }
-    .card h3 { margin-top: 0; margin-bottom: 0.7rem; color: var(--green); font-size: 1.5rem; }
+    .card h3 { margin-top: 0; margin-bottom: 0.8rem; color: var(--green); font-size: 1.5rem; }
     .card p { color: var(--muted); }
     label {
       display: block;
@@ -116,57 +107,64 @@
       font-weight: 700;
       color: var(--ink);
     }
-    input, textarea, select {
+    input, select, textarea {
       width: 100%;
-      padding: 0.8rem 0.9rem;
+      padding: 0.82rem 0.9rem;
       border-radius: 8px;
-      border: 1px solid #cfc3af;
+      border: 1px solid #d0c3ad;
       background: #fff;
       color: var(--ink);
       font: inherit;
     }
     textarea { min-height: 110px; resize: vertical; }
-    input:focus, textarea:focus, select:focus { outline: 3px solid rgba(211, 161, 74, 0.2); border-color: var(--gold); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .status { min-height: 1.5em; margin-top: 0.8rem; color: var(--green); font-weight: 700; }
-    .proverb-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.8rem; }
+    input:focus, select:focus, textarea:focus { outline: 3px solid rgba(213, 162, 70, 0.2); border-color: var(--gold); }
+    .status {
+      min-height: 1.5em;
+      margin-top: 0.75rem;
+      color: var(--green);
+      font-weight: 700;
+    }
+    .proverb-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.8rem;
+    }
     .proverb-list li {
       background: #f2ead9;
       border-left: 5px solid var(--gold);
       border-radius: 0 8px 8px 0;
       padding: 1rem 1.1rem;
       font-size: 1.08rem;
-      font-family: Georgia, serif;
     }
     .proverb-list li small {
       display: block;
       margin-top: 0.5rem;
       color: var(--muted);
-      font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 0.8rem;
+      font-family: ui-sans-serif, system-ui, sans-serif;
     }
     .empty { color: var(--muted); font-style: italic; }
     .review-note {
-      margin-top: 1.25rem;
+      margin-top: 2rem;
       background: var(--green-dark);
-      color: #dfeee5;
+      color: #e2efe7;
       border-radius: 12px;
       padding: 1.2rem 1.4rem;
     }
     .review-note h3 { color: #f2d391; }
-    .review-note p, .review-note a { color: #e4eee8; }
+    .review-note a { color: #f2d391; }
     footer {
-      margin-top: 3rem;
       padding: 2rem 0;
       background: var(--green-dark);
-      color: #dfeee5;
+      color: #e8f1ea;
       font-size: 0.92rem;
     }
-    footer a { color: #f1d38f; }
+    footer a { color: #f2d391; }
     @media (max-width: 760px) {
-      .grid, .form-row { grid-template-columns: 1fr; }
-      .nav-links a:not(.button) { display: none; }
-      .hero { padding-top: 4.5rem; }
+      .grid { grid-template-columns: 1fr; }
+      nav { flex-wrap: wrap; justify-content: space-between; }
     }
   </style>
 </head>
@@ -175,12 +173,7 @@
     <div class="wrap">
       <nav aria-label="Main navigation">
         <a class="brand" href="#top">Thimo cia Gikuyu</a>
-        <div class="nav-links">
-          <a href="#proverbs">Proverbs</a>
-          <a href="#contribute">Contribute</a>
-          <a href="#review">Review</a>
-          <a class="button secondary" href="#contribute">Share a Thimo</a>
-        </div>
+        <a class="button secondary" href="#contribute">Share a Thimo</a>
       </nav>
     </div>
   </header>
@@ -189,37 +182,33 @@
     <div class="wrap hero-content">
       <p class="eyebrow">Preserving memory · Reviewing wisdom</p>
       <h1>Thimo cia Gikuyu</h1>
-      <p>A reviewed collection of Gikuyu proverbs, their meanings, and the living context around them. This project preserves culture through careful entries, clear explanations, and peer review.</p>
-      <div class="hero-actions">
-        <a class="button" href="#proverbs">Explore entries</a>
-        <a class="button secondary" href="#contribute">Add a proverb</a>
-      </div>
+      <p>A reviewed collection of Gikuyu proverbs and their meanings, preserving cultural wisdom with context, accuracy, and peer review.</p>
     </div>
   </section>
 
   <main class="wrap">
-    <section id="proverbs" aria-labelledby="proverbs-title">
+    <section aria-labelledby="archive-title">
       <div class="section-heading">
-        <h2 id="proverbs-title">Reviewed proverb archive</h2>
-        <p>Entries are shown here without altering the original collection. New or revised proverbs can be reviewed before they are accepted into the project.</p>
+        <h2 id="archive-title">Reviewed proverb archive</h2>
+        <p>Entries are drawn from the project’s existing proverb file and kept separate from the review queue. New submissions require peer review before they are accepted.</p>
       </div>
       <div class="card">
         <ul id="proverb-list" class="proverb-list" aria-live="polite">
-          <li class="empty">No proverb entries loaded yet. Add one below or review the issue-based submission route.</li>
+          <li class="empty">Loading reviewed proverbs…</li>
         </ul>
       </div>
     </section>
 
-    <section id="contribute" aria-labelledby="contribute-title" style="margin-top: 4.5rem;">
+    <section id="contribute" aria-labelledby="contribute-title" style="margin-top: 4.25rem;">
       <div class="section-heading">
         <h2 id="contribute-title">Add a proverb with context</h2>
-        <p>Each contribution should include the proverb, a detailed description, and a review status. This keeps the archive meaningful and trustworthy.</p>
+        <p>Every contribution should include the proverb, a detailed description, and a review status. This keeps the archive meaningful and reliable.</p>
       </div>
       <div class="grid">
         <form id="proverb-form" class="card">
           <h3>Submit a proverb</h3>
 
-          <div class="form-row">
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0;">
             <div>
               <label for="contribution-type">Contribution type</label>
               <select id="contribution-type" name="contributionType">
@@ -240,69 +229,91 @@
           <textarea id="description" name="description" required maxlength="1500" placeholder="Explain the meaning, context, translation, or cultural use of this proverb..."></textarea>
 
           <label for="translation">Optional translation / explanation</label>
-          <textarea id="translation" name="translation" maxlength="1000" placeholder="If relevant, give a translation or short explanation"></textarea>
+          <textarea id="translation" name="translation" maxlength="1000" placeholder="Optional translation or explanation"></textarea>
 
           <button class="button" type="submit" style="margin-top: 1rem;">Submit for review</button>
           <p id="form-status" class="status" role="status"></p>
         </form>
 
-        <div class="card" id="review">
-          <h3>Peer review process</h3>
-          <p>Submissions are reviewed by community peers before they are accepted. Review means checking meaning, context, duplication, and cultural accuracy.</p>
-          <p>Use the issue-based route for a formal review, or use the local demo form to collect ideas while keeping the repository safe and unchanged.</p>
-          <a class="button" href="https://github.com/samgfour/thimo_cia_gikuyu/issues/new/choose" target="_blank" rel="noopener">Open GitHub issue form</a>
+        <div class="card">
+          <h3>Review process</h3>
+          <p>New entries are held in a peer review queue instead of being written directly to the archive. Review checks meaning, cultural context, duplication, and accuracy.</p>
+          <p>This form submits a review request to the GitHub issue endpoint when the server is deployed with a valid repository token.</p>
+          <a class="button" href="https://github.com/samgfour/thimo_cia_gikuyu/issues" target="_blank" rel="noopener">View project issues</a>
         </div>
       </div>
     </section>
 
     <div class="review-note">
       <h3>Open source and review-first</h3>
-      <p>This project is open source and focused on inclusion, careful stewardship, and cultural accuracy. New entries are not added without a review step.</p>
-      <a href="https://github.com/samgfour/thimo_cia_gikuyu" target="_blank" rel="noopener">View the project on GitHub</a>
+      <p>This project is open source and community-driven. Existing proverbs remain intact while new contributions are reviewed before acceptance.</p>
+      <a href="https://github.com/samgfour/thimo_cia_gikuyu" target="_blank" rel="noopener">Open project on GitHub</a>
     </div>
   </main>
 
   <footer>
-    <div class="wrap">
-      Built for the <a href="https://github.com/samgfour/thimo_cia_gikuyu">Thimo cia Gikuyu</a> open-source community.
-    </div>
+    <div class="wrap">Built for the <a href="https://github.com/samgfour/thimo_cia_gikuyu">Thimo cia Gikuyu</a> open-source community.</div>
   </footer>
 
   <script>
-    const localKey = 'thimo-cia-gikuyu-review-items';
-    const list = document.getElementById('proverb-list');
+    const proverbList = document.getElementById('proverb-list');
     const form = document.getElementById('proverb-form');
-    const status = document.getElementById('form-status');
+    const statusEl = document.getElementById('form-status');
+    const localKey = 'thimo-cia-gikuyu-review-local';
 
-    function readLocalEntries() {
+    async function loadArchive() {
+      const list = [];
       try {
-        return JSON.parse(localStorage.getItem(localKey)) || [];
+        const response = await fetch('kikuyu_proverbs.csv', { cache: 'no-store' });
+        if (!response.ok) throw new Error('CSV not found');
+        const text = await response.text();
+        const lines = text.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+        lines.forEach((item) => {
+          if (item) list.push({ proverb: item, description: 'Reviewed archive entry', reviewStatus: 'Approved' });
+        });
       } catch (error) {
-        return [];
+        console.warn('Unable to fetch kikuyu_proverbs.csv:', error);
       }
+
+      try {
+        const stored = JSON.parse(localStorage.getItem(localKey) || '[]');
+        if (Array.isArray(stored)) {
+          stored.forEach((entry) => {
+            list.push({
+              proverb: entry.proverb,
+              description: entry.description || 'Pending peer review',
+              reviewStatus: entry.reviewStatus || 'Pending peer review'
+            });
+          });
+        }
+      } catch (error) {
+        console.warn('Local preview entries unavailable:', error);
+      }
+
+      renderList(list);
     }
 
-    function saveLocalEntries(entries) {
-      localStorage.setItem(localKey, JSON.stringify(entries));
-    }
-
-    function renderEntries(entries) {
-      list.innerHTML = '';
+    function renderList(entries) {
+      proverbList.innerHTML = '';
       if (!entries.length) {
-        list.innerHTML = '<li class="empty">No proverb entries loaded yet. Add one below or review the issue-based submission route.</li>';
+        proverbList.innerHTML = '<li class="empty">No proverbs loaded yet.</li>';
         return;
       }
 
       entries.forEach((entry) => {
         const item = document.createElement('li');
-        const description = entry.description ? entry.description : 'No detailed description provided yet.';
-        item.innerHTML = `<strong>${entry.proverb}</strong><small>Type: ${entry.contributionType || 'New proverb'} • Review: ${entry.reviewStatus || 'Pending'}<br>${description}</small>`;
-        list.appendChild(item);
+        const reviewText = entry.reviewStatus || 'Pending peer review';
+        item.innerHTML = `
+          <strong>${entry.proverb}</strong>
+          <small>Type: New proverb • Review: ${reviewText}<br>${entry.description}</small>
+        `;
+        proverbList.appendChild(item);
       });
     }
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
+
       const proverb = document.getElementById('proverb').value.trim();
       const description = document.getElementById('description').value.trim();
       const translation = document.getElementById('translation').value.trim();
@@ -310,26 +321,58 @@
       const contributionType = document.getElementById('contribution-type').value;
 
       if (!proverb || !description) {
-        status.textContent = 'Please add both the proverb and a detailed description.';
+        statusEl.textContent = 'Please enter both the proverb and a detailed description.';
         return;
       }
 
-      const entries = readLocalEntries();
-      entries.push({
-        proverb,
-        description,
-        translation,
-        source,
-        contributionType,
-        reviewStatus: 'Pending peer review'
-      });
-      saveLocalEntries(entries);
-      renderEntries(entries);
-      form.reset();
-      status.textContent = 'Submitted for peer review. It is stored locally for preview and review purposes.';
+      statusEl.textContent = 'Submitting for peer review…';
+
+      try {
+        const response = await fetch('/api/submit-proverb', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ proverb, description, translation, source, contributionType })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data?.error || 'Submission failed');
+        }
+
+        const stored = JSON.parse(localStorage.getItem(localKey) || '[]');
+        stored.push({
+          proverb,
+          description,
+          translation,
+          source,
+          contributionType,
+          reviewStatus: 'Pending peer review',
+          issueUrl: data.issueUrl || null
+        });
+        localStorage.setItem(localKey, JSON.stringify(stored));
+
+        form.reset();
+        statusEl.textContent = 'Submitted for peer review. Check the GitHub issue created for this submission.';
+        await loadArchive();
+      } catch (error) {
+        statusEl.textContent = 'Submission could not be sent to GitHub yet. Save locally or check deployment settings.';
+        const stored = JSON.parse(localStorage.getItem(localKey) || '[]');
+        stored.push({
+          proverb,
+          description,
+          translation,
+          source,
+          contributionType,
+          reviewStatus: 'Saved locally — pending deployment'
+        });
+        localStorage.setItem(localKey, JSON.stringify(stored));
+        await loadArchive();
+        console.error(error);
+      }
     });
 
-    renderEntries(readLocalEntries());
+    loadArchive();
   </script>
 </body>
 </html>
