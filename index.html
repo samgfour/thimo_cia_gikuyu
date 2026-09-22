@@ -3,217 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Thimo cia Gikuyu — a community collection of Gikuyu proverbs and wisdom.">
-  <title>Thimo cia Gikuyu</title>
+  <meta name="description" content="Thimo cia Gikuyu — a modern, open-source collection of Gikuyu proverbs and wisdom.">
+  <title>Thimo cia Gikuyu | Gikuyu Proverbs</title>
   <style>
     :root {
-      --ink: #243229;
-      --muted: #627268;
-      --cream: #f8f4ea;
+      --ink: #213229;
+      --muted: #66766d;
+      --cream: #f7f3e9;
       --paper: #fffdf8;
-      --green: #1f5b45;
-      --green-dark: #163f31;
-      --gold: #c89235;
-      --line: #e7dfcf;
+      --green: #1f6249;
+      --green-dark: #123f31;
+      --gold: #d19a3a;
+      --line: #e4dccb;
+      --shadow: 0 16px 45px rgba(24, 57, 43, .10);
     }
 
     * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--cream);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.6;
-    }
-
-    .wrap {
-      width: min(1080px, calc(100% - 2rem));
-      margin: 0 auto;
-    }
-
-    header {
-      padding: 1.25rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, .2);
-      color: #fff;
-      background: var(--green-dark);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      color: #fff;
-      font-size: 1.25rem;
-      font-weight: bold;
-      letter-spacing: .04em;
-      text-decoration: none;
-    }
-
-    .language {
-      color: #dce9df;
-      font-size: .9rem;
-    }
-
-    .hero {
-      padding: 6rem 0 5rem;
-      color: #fff;
-      background:
-        linear-gradient(135deg, rgba(22, 63, 49, .96), rgba(31, 91, 69, .84)),
-        radial-gradient(circle at 80% 20%, var(--gold), transparent 35%);
-    }
-
-    .hero-content { max-width: 700px; }
-
-    .eyebrow {
-      margin: 0 0 .75rem;
-      color: #f1c96d;
-      font-size: .8rem;
-      font-weight: bold;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    h1, h2 { line-height: 1.15; }
-
-    h1 {
-      max-width: 680px;
-      margin: 0 0 1.25rem;
-      font-size: clamp(2.5rem, 7vw, 5.25rem);
-      letter-spacing: -.04em;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 0;
-      color: #e4eee7;
-      font-size: 1.15rem;
-    }
-
-    main { padding: 4rem 0; }
-
-    .intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    h2 {
-      margin: 0 0 .75rem;
-      color: var(--green-dark);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-    }
-
-    .intro p { margin-top: 0; color: var(--muted); }
-
-    .card {
-      padding: 1.75rem;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: var(--paper);
-      box-shadow: 0 10px 30px rgba(36, 50, 41, .06);
-    }
-
-    .card h3 { margin-top: 0; color: var(--green); }
-
-    ol { padding-left: 1.35rem; margin-bottom: 0; }
-    li { margin: .65rem 0; }
-
-    code {
-      padding: .15rem .35rem;
-      border-radius: 4px;
-      color: var(--green-dark);
-      background: #edf3ed;
-      font-family: Consolas, monospace;
-      font-size: .9em;
-    }
-
-    .quote {
-      margin: 3.5rem 0 0;
-      padding: 2rem;
-      border-left: 5px solid var(--gold);
-      background: #f1eadb;
-      color: var(--green-dark);
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      font-style: italic;
-    }
-
-    .quote cite {
-      display: block;
-      margin-top: .75rem;
-      color: var(--muted);
-      font-size: .95rem;
-      font-style: normal;
-    }
-
-    footer {
-      padding: 2rem 0;
-      color: #dce9df;
-      background: var(--green-dark);
-      font-size: .9rem;
-    }
-
-    footer a { color: #f1c96d; }
-
-    @media (max-width: 700px) {
-      .hero { padding: 4rem 0; }
-      .intro { grid-template-columns: 1fr; }
-      nav { align-items: flex-start; flex-direction: column; }
-    }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    .wrap { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
+    a { color: inherit; }
+    header { position: sticky; top: 0; z-index: 10; color: #fff; background: rgba(18, 63, 49, .96); backdrop-filter: blur(10px); }
+    nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { color: #fff; font-family: Georgia, serif; font-size: 1.3rem; font-weight: 700; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 1.2rem; font-size: .92rem; }
+    .nav-links a { color: #e2eee6; text-decoration: none; }
+    .nav-links a:hover { color: #f2cb78; }
+    .button { display: inline-block; padding: .8rem 1.1rem; border: 0; border-radius: 7px; color: #fff; background: var(--green); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .button:hover { background: var(--green-dark); }
+    .button.secondary { color: var(--green-dark); background: #f4d48e; }
+    .hero { padding: 7rem 0 6rem; color: #fff; background: radial-gradient(circle at 85% 15%, rgba(209, 154, 58, .55), transparent 24%), linear-gradient(125deg, #123f31 0%, #267453 100%); }
+    .hero-content { max-width: 760px; }
+    .eyebrow { margin: 0 0 .8rem; color: #f3cc79; font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2, h3 { line-height: 1.15; }
+    h1 { margin: 0 0 1.25rem; font-family: Georgia, serif; font-size: clamp(2.8rem, 8vw, 6rem); letter-spacing: -.055em; }
+    .hero p { max-width: 650px; margin: 0 0 2rem; color: #e4efe8; font-size: clamp(1.05rem, 2vw, 1.25rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+    main { padding: 5rem 0; }
+    .section-heading { max-width: 680px; margin-bottom: 2rem; }
+    .section-heading h2 { margin: 0 0 .6rem; color: var(--green-dark); font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+    .card { padding: 1.6rem; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 .7rem; color: var(--green); font-family: Georgia, serif; font-size: 1.5rem; }
+    .card p { color: var(--muted); }
+    label { display: block; margin: 1rem 0 .4rem; color: var(--ink); font-weight: 700; }
+    textarea { width: 100%; min-height: 115px; padding: .85rem; resize: vertical; border: 1px solid #cfc6b4; border-radius: 7px; color: var(--ink); background: #fff; font: inherit; }
+    textarea:focus { outline: 3px solid rgba(209, 154, 58, .35); border-color: var(--gold); }
+    .form-note, .status { margin: .8rem 0 0; color: var(--muted); font-size: .9rem; }
+    .status { min-height: 1.4em; color: var(--green); font-weight: 700; }
+    .proverb-list { display: grid; gap: .8rem; padding: 0; margin: 0; list-style: none; }
+    .proverb-list li { padding: 1rem 1.1rem; border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; background: #f3ecdc; font-family: Georgia, serif; font-size: 1.12rem; }
+    .empty { color: var(--muted); font-style: italic; }
+    .open-source { margin-top: 1.4rem; color: #dcebe2; background: var(--green-dark); }
+    .open-source h3 { color: #f2cb78; }
+    .open-source p { color: #dcebe2; }
+    .open-source a { color: #f2cb78; font-weight: 700; }
+    .code { padding: .12rem .35rem; border-radius: 4px; color: var(--green-dark); background: #edf3ed; font-family: Consolas, monospace; font-size: .9em; }
+    footer { padding: 2rem 0; color: #dce9df; background: var(--green-dark); font-size: .9rem; }
+    footer a { color: #f2cb78; }
+    @media (max-width: 720px) { .nav-links a:not(.button) { display: none; } .hero { padding: 5rem 0 4rem; } .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
       <nav aria-label="Main navigation">
-        <a class="brand" href="index.html">Thimo cia Gikuyu</a>
-        <span class="language">Gikuyu wisdom · Community collection</span>
+        <a class="brand" href="#top">Thimo cia Gikuyu</a>
+        <div class="nav-links">
+          <a href="#proverbs">Proverbs</a>
+          <a href="#about">About</a>
+          <a class="button secondary" href="#contribute">Contribute</a>
+        </div>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <div id="top" class="hero">
     <div class="wrap hero-content">
-      <p class="eyebrow">Preserving words, sharing wisdom</p>
-      <h1>Thimo cia Gikuyu</h1>
-      <p>A growing collection of Gikuyu proverbs, gathered one contribution at a time. Add a thimo and help keep this living heritage available for the next generation.</p>
+      <p class="eyebrow">Preserving words · Sharing wisdom</p>
+      <h1>Wisdom that lives in every thimo.</h1>
+      <p>A growing community collection of Gikuyu proverbs. Explore the words of those who came before us and help preserve them for those who come after.</p>
+      <div class="hero-actions">
+        <a class="button" href="#proverbs">Explore proverbs</a>
+        <a class="button secondary" href="#contribute">Share a thimo</a>
+      </div>
     </div>
-  </section>
+  </div>
 
   <main class="wrap">
-    <section class="intro" aria-labelledby="about-title">
-      <div>
-        <h2 id="about-title">Share a proverb</h2>
-        <p>The project includes <code>add_proverb.py</code>, a small command-line tool for collecting proverbs. Each entry is appended to <code>thimo.csv</code>, creating a simple, growing record of community knowledge.</p>
-        <p>Run the program, type your proverb, and press Enter. When you are finished, submit an empty line to leave the contribution prompt.</p>
+    <section id="proverbs" aria-labelledby="proverbs-title">
+      <div class="section-heading">
+        <h2 id="proverbs-title">The proverb collection</h2>
+        <p>Proverbs saved in <span class="code">thimo.csv</span> appear here automatically when the site is served with the project files.</p>
       </div>
-
       <div class="card">
-        <h3>How it works</h3>
-        <ol>
-          <li>Open a terminal in the project directory.</li>
-          <li>Run <code>python add_proverb.py</code>.</li>
-          <li>Enter a Gikuyu proverb when prompted.</li>
-          <li>Press Enter on an empty prompt to finish.</li>
-        </ol>
+        <ul id="proverb-list" class="proverb-list" aria-live="polite">
+          <li class="empty">Loading the collection…</li>
+        </ul>
       </div>
     </section>
 
-    <blockquote class="quote">
-      Every proverb carries a piece of memory, experience, and guidance.
-      <cite>— Thimo cia Gikuyu</cite>
-    </blockquote>
+    <section id="contribute" aria-labelledby="contribute-title" style="margin-top: 5rem;">
+      <div class="section-heading">
+        <h2 id="contribute-title">Add your voice</h2>
+        <p>Have a proverb to share? Add it below. Browser contributions are kept on this device; to permanently add one to the project, contribute it to <span class="code">thimo.csv</span> through GitHub.</p>
+      </div>
+      <div class="grid">
+        <form id="proverb-form" class="card">
+          <h3>Share a thimo</h3>
+          <label for="proverb">Your proverb</label>
+          <textarea id="proverb" name="proverb" required maxlength="500" placeholder="Andika thimo yaku…"></textarea>
+          <button class="button" type="submit">Add proverb</button>
+          <p id="form-status" class="status" role="status"></p>
+          <p class="form-note">This static page cannot write directly to the repository. Use the GitHub link below to share a permanent contribution.</p>
+        </form>
+
+        <div id="about" class="card">
+          <h3>About the project</h3>
+          <p><span class="code">add_proverb.py</span> is the original command-line collector. Run <span class="code">python add_proverb.py</span> to append proverbs to the local <span class="code">thimo.csv</span> file.</p>
+          <p>Every contribution helps keep Gikuyu language, memory, and wisdom visible.</p>
+          <a class="button" href="https://github.com/samgfour/thimo_cia_gikuyu/blob/main/add_proverb.py" target="_blank" rel="noopener">View the Python script</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card open-source" aria-labelledby="open-source-title">
+      <h3 id="open-source-title">Open source and open to everyone</h3>
+      <p>Thimo cia Gikuyu is an open-source community project. Read the code, suggest improvements, add proverbs, and help build a lasting digital record of Gikuyu wisdom.</p>
+      <a href="https://github.com/samgfour/thimo_cia_gikuyu" target="_blank" rel="noopener">View the project on GitHub →</a>
+    </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      Built for the <a href="https://github.com/samgfour/thimo_cia_gikuyu">Thimo cia Gikuyu</a> community project.
-    </div>
+    <div class="wrap">Built with care for the <a href="https://github.com/samgfour/thimo_cia_gikuyu">Thimo cia Gikuyu</a> open-source community.</div>
   </footer>
+
+  <script>
+    const list = document.getElementById('proverb-list');
+    const form = document.getElementById('proverb-form');
+    const input = document.getElementById('proverb');
+    const status = document.getElementById('form-status');
+    const localKey = 'thimo-cia-gikuyu-local-proverbs';
+
+    function readLocalProverbs() {
+      try { return JSON.parse(localStorage.getItem(localKey)) || []; }
+      catch (error) { return []; }
+    }
+
+    function renderProverbs(proverbs) {
+      list.innerHTML = '';
+      if (!proverbs.length) {
+        list.innerHTML = '<li class="empty">No proverbs have been added yet. Be the first to contribute.</li>';
+        return;
+      }
+      proverbs.forEach((proverb) => {
+        const item = document.createElement('li');
+        item.textContent = proverb;
+        list.appendChild(item);
+      });
+    }
+
+    async function loadProverbs() {
+      let stored = [];
+      try {
+        const response = await fetch('thimo.csv', { cache: 'no-store' });
+        if (response.ok) stored = (await response.text()).split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+      } catch (error) { /* Local file access may block fetch; local contributions still work. */ }
+      renderProverbs([...stored, ...readLocalProverbs()]);
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const proverb = input.value.trim();
+      if (!proverb) return;
+      const contributions = readLocalProverbs();
+      contributions.push(proverb);
+      localStorage.setItem(localKey, JSON.stringify(contributions));
+      input.value = '';
+      status.textContent = 'Your proverb was added on this device. Thank you!';
+      loadProverbs();
+    });
+
+    loadProverbs();
+  </script>
 </body>
 </html>
